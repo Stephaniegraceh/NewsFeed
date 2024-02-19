@@ -19,13 +19,16 @@ def fetch_filtered_articles(rss_feeds, keywords):
         feed = feedparser.parse(feed_url)
         for entry in feed.entries:
             content = entry.title
+            pub_date = entry.get('pubDate', 'No date provided')  # Extract pubDate
             if any(re.search(re.escape(keyword), content, re.IGNORECASE) for keyword in keywords):
                 article = {
                     'title': entry.title,
                     'link': entry.link,
+                    'pubDate': pub_date,  # Store pubDate
                 }
                 filtered_articles.append(article)
     return filtered_articles
+
 
 def generate_html_feed(filtered_articles):
     html_content = """
@@ -37,16 +40,20 @@ def generate_html_feed(filtered_articles):
             body {
                 font-family: 'Open Sans', sans-serif;
                 margin: 40px;
-                font-size: 12px; /* Adjusted font size for body */
+                font-size: 12px;
             }
             article {
                 margin-bottom: 20px;
             }
             h1 {
-                font-size: 24px; /* Adjusted font size for main title */
+                font-size: 24px;
             }
             h2 {
-                font-size: 14px; /* Adjusted font size for article titles */
+                font-size: 14px;
+            }
+            .pubDate {
+                font-size: 12px;
+                color: #666;
             }
         </style>
     </head>
@@ -58,6 +65,7 @@ def generate_html_feed(filtered_articles):
         html_content += f"""
         <article>
             <h2><a href='{article['link']}'>{article['title']}</a></h2>
+            <p class="pubDate">{article['pubDate']}</p>
         </article>
         """
     
@@ -66,6 +74,7 @@ def generate_html_feed(filtered_articles):
     # Save the HTML content to a file
     with open('index.html', 'w') as html_file:
         html_file.write(html_content)
+
         
 rss_feeds = [
     'https://www.theguardian.com/uk/rss',
