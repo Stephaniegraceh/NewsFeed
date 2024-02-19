@@ -18,13 +18,8 @@ def fetch_filtered_articles(rss_feeds, keywords):
     for feed_url in rss_feeds:
         feed = feedparser.parse(feed_url)
         for entry in feed.entries:
-            # Check if 'summary' exists
-            if hasattr(entry, 'summary'):
-                entry_summary = entry.summary
-            else:
-                entry_summary = ''  # Fallback to an empty string if 'summary' does not exist
-            
-            # Combine title and summary (or its fallback) for keyword search
+            # Use getattr to safely access 'summary', default to empty string if not found
+            entry_summary = getattr(entry, 'summary', '')
             content = entry.title + ' ' + entry_summary
             if any(re.search(re.escape(keyword), content, re.IGNORECASE) for keyword in keywords):
                 article = {
