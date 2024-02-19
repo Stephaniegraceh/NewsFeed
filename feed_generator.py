@@ -33,9 +33,13 @@ def generate_rss_feed(filtered_articles):
     fg.id('https://Stephaniegraceh.github.io/NewsFeed')
     fg.title('NewsFeed')
     fg.link(href='https://Stephaniegraceh.github.io/NewsFeed/feed.xml', rel='alternate')
-    fg.description('Filtered Article Feed (WH)')
+    fg.description('Filtered Article Feed')
+
     for article in filtered_articles:
-        fg.add_entry(title=article['title'], link={'href': article['link']})
+        fe = fg.add_entry()
+        fe.title(article['title'])
+        fe.link(href=article['link'])
+        # Omitting the summary/description from each entry
     
     fg.rss_file('feed.xml')  # Save the RSS feed to a file
 
