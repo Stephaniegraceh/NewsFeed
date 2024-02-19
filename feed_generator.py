@@ -47,64 +47,74 @@ def fetch_filtered_articles(rss_feeds, keywords):
 
 def generate_html_feed(filtered_articles):
     html_content = """
-    <html>
-    <head>
-        <title>NewsFeed</title>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
-        <style>
-            body {
-                font-family: 'Open Sans', sans-serif;
-                margin: 40px;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-            .article-tile {
-                position: relative;
-                width: 200px;
-                height: 200px;
-                color: white;
-            }
-            .article-tile a {
-                color: white;
-                text-decoration: none;
-            }
-            .article-tile img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-            .overlay {
-                position: absolute;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-                color: #f1f1f1;
-                width: 100%;
-                transition: .5s ease;
-                opacity:0;
-                font-size: 20px;
-                padding: 20px;
-                text-align: center;
-            }
-            .article-tile:hover .overlay {
-                opacity: 1;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Filtered Article Feed</h1>
-    """
+ <html>
+<head>
+    <title>NewsFeed</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .article-tile {
+            position: relative;
+            width: 1600px; /* Width of tile */
+            height: 900px; /* Height of tile */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* Ensures that the overlay and image are contained within the tile's rounded corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Slight drop shadow */
+        }
+        .article-tile a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            height: 100%;
+        }
+        .article-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7)); /* Black gradient overlay */
+            color: white;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .overlay .title {
+            font-size: 36px; /* Larger font size for the title */
+            letter-spacing: -0.1em; /* Decreased letter spacing */
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Text drop shadow */
+        }
+        .overlay .date {
+            font-size: 18px; /* Visible date size */
+        }
+    </style>
+</head>
+<body>
+    <h1>Filtered Article Feed</h1>
 
-    for article in filtered_articles:
-        html_content += f"""
-        <div class="article-tile">
-            <a href="{article['link']}">
-                <img src="{article['image_url']}" alt="">
-                <div class="overlay">{article['title']}</div>
-            </a>
-        </div>
-        """
-    
+    <!-- Example of an article tile -->
+    <div class="article-tile">
+        <a href="#">
+            <img src="path/to/article/image.jpg" alt="Article image">
+            <div class="overlay">
+                <div class="title">Article Title</div>
+                <div class="date">January 1, 2024</div>
+            </div>
+        </a>
+    </div>
+    <!-- Repeat the above block for each article -->
+
+</body>
+</html>
+
     html_content += "</body></html>"
     
     with open('index.html', 'w') as html_file:
