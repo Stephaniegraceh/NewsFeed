@@ -14,8 +14,9 @@ def fetch_filtered_articles(rss_feeds, keywords):
     for feed_url in rss_feeds:
         feed = feedparser.parse(feed_url)
         for entry in feed.entries:
-            # Safely access 'summary' by checking its existence first
-            entry_summary = entry.summary if hasattr(entry, 'summary') else ''
+            # Safely get 'summary' attribute, default to empty string if not present
+            entry_summary = getattr(entry, 'summary', '')
+            # Combine title and safe summary for keyword search
             content = entry.title + ' ' + entry_summary
             if any(re.search(re.escape(keyword), content, re.IGNORECASE) for keyword in keywords):
                 article = {
@@ -25,6 +26,7 @@ def fetch_filtered_articles(rss_feeds, keywords):
                 }
                 filtered_articles.append(article)
     return filtered_articles
+
 
 
 def generate_rss_feed(filtered_articles):
