@@ -18,7 +18,6 @@ def fetch_filtered_articles(rss_feeds, keywords):
     for feed_url in rss_feeds:
         feed = feedparser.parse(feed_url)
         for entry in feed.entries:
-            # Only use entry.title for keyword search
             content = entry.title
             if any(re.search(re.escape(keyword), content, re.IGNORECASE) for keyword in keywords):
                 article = {
@@ -28,20 +27,18 @@ def fetch_filtered_articles(rss_feeds, keywords):
                 filtered_articles.append(article)
     return filtered_articles
 
-def generate_rss_feed(filtered_articles):
-    fg = FeedGenerator()
-    fg.id('https://Stephaniegraceh.github.io/NewsFeed')
-    fg.title('NewsFeed')
-    fg.link(href='https://Stephaniegraceh.github.io/NewsFeed/feed.xml', rel='alternate')
-    fg.description('Filtered Article Feed')
-
-    for article in filtered_articles:
-        fe = fg.add_entry()
-        fe.title(article['title'])
-        fe.link(href=article['link'])
-        # Omitting the summary/description from each entry
+def generate_html_feed(filtered_articles):
+    html_content = "<html><head><title>NewsFeed</title></head><body>"
+    html_content += "<h1>Filtered Article Feed</h1>"
     
-    fg.rss_file('feed.xml')  # Save the RSS feed to a file
+    for article in filtered_articles:
+        html_content += f"<article><h2><a href='{article['link']}'>{article['title']}</a></h2></article>"
+    
+    html_content += "</body></html>"
+    
+    # Save the HTML content to a file
+    with open('index.html', 'w') as html_file:
+        html_file.write(html_content)
 
 rss_feeds = [
     'https://www.theguardian.com/uk/rss',
@@ -74,4 +71,4 @@ keywords = [
 ]
 
 filtered_articles = fetch_filtered_articles(rss_feeds, keywords)
-generate_rss_feed(filtered_articles)
+generate_html_feed(filtered_articles)
