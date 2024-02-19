@@ -20,7 +20,6 @@ def fetch_filtered_articles(rss_feeds, keywords):
                 article = {
                     'title': entry.title,
                     'link': entry.link,
-                    # Omitting 'summary' from the articles since we're simplifying the function
                 }
                 filtered_articles.append(article)
     return filtered_articles
@@ -32,7 +31,7 @@ def generate_rss_feed(filtered_articles):
     fg.link(href='https://Stephaniegraceh.github.io/NewsFeed/feed.xml', rel='alternate')
     fg.description('Filtered Article Feed (WH)')
     for article in filtered_articles:
-        fg.add_entry(title=article['title'], link={'href': article['link']}, description=article['summary'])
+        fg.add_entry(title=article['title'], link={'href': article['link']})
     
     fg.rss_file('feed.xml')  # Save the RSS feed to a file
 
