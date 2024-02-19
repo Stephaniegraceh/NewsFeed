@@ -2,7 +2,6 @@ import feedparser
 import re
 import requests
 from bs4 import BeautifulSoup
-from feedgen.feed import FeedGenerator
 
 def extract_social_image_url(article_url):
     try:
@@ -49,15 +48,15 @@ def generate_html_feed(filtered_articles):
             justify-content: center;
             gap: 20px;
         }
-        .article-tile {
+        .article-tile, .team-wera-tile {
             position: relative;
-            width: 1600px; /* Width of tile */
-            height: 900px; /* Height of tile */
+            width: 300px; /* Adjusted width of tile for 4 per row */
+            height: 168px; /* Adjusted height to maintain aspect ratio */
             border-radius: 8px; /* Rounded corners */
             overflow: hidden; /* Ensures content is contained within corners */
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
         }
-        .article-tile img {
+        .article-tile img, .team-wera-tile img {
             width: 100%;
             height: 100%;
             object-fit: cover; /* Ensures image covers tile */
@@ -66,27 +65,31 @@ def generate_html_feed(filtered_articles):
         .overlay {
             position: absolute;
             bottom: 0;
-            left: 0;
-            right: 0;
             background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7)); /* Gradient overlay */
             color: white;
             width: 100%;
-            padding: 20px;
+            padding: 10px; /* Adjusted padding */
             box-sizing: border-box;
+            border-radius: 0 0 8px 8px; /* Rounded corners for the bottom */
         }
         .overlay .title {
-            font-size: 36px; /* Title font size */
+            font-size: 20px; /* Adjusted title font size */
             margin: 0;
-            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+            text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow */
         }
         .overlay .date {
-            font-size: 18px; /* Date font size */
+            font-size: 14px; /* Adjusted date font size */
             margin: 0;
         }
     </style>
 </head>
 <body>
-    <h1>Filtered Article Feed</h1>
+"""
+    # Add the 'Team Wera' tile as the first tile
+    html_content += f"""
+    <div class="team-wera-tile">
+        <img src="team_wera.png" alt="Team Wera">
+    </div>
 """
     for article in filtered_articles:
         html_content += f"""
