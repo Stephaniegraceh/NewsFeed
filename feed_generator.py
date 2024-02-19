@@ -46,7 +46,7 @@ def generate_html_feed(filtered_articles):
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
         }
         a {
             text-decoration: none; /* Removes the underline from links */
@@ -76,12 +76,12 @@ def generate_html_feed(filtered_articles):
             border-radius: 0 0 8px 8px; /* Rounded corners for the bottom */
         }
         .overlay .title {
-            font-size: 20px; /* Adjusted title font size */
+            font-size: 12px; /* Adjusted title font size */
             margin: 0;
             text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow */
         }
         .overlay .date {
-            font-size: 14px; /* Adjusted date font size */
+            font-size: 10px; /* Adjusted date font size */
             margin: 0;
         }
     </style>
@@ -138,7 +138,7 @@ keywords = [
     'Wera Hobhouse', 'Lib Dem', 'global warming', 'renewable energy', 'climate',
     'Department for Energy Security and Net Zero', 'Department for Food Environment and Rural affairs',
     'environment', 'community energy', 'Liberal Democrat', 'biodiversity', 'nuclear',
-    'immigration', 'Rwanda', 'weather', 'wildfires', 'pre-payment meter', 'Bath',
+    'immigration', 'Rwanda', 'wildfires', 'pre-payment meter', 'Bath',
     'Conservative', 'misogyny', 'sexual', 'NHS', 'Osteoporosis', 'cycling', 'Prime Minister',
     'trauma', 'eating disorder'
 ]
