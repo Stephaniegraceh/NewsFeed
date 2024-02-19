@@ -14,20 +14,16 @@ def fetch_filtered_articles(rss_feeds, keywords):
     for feed_url in rss_feeds:
         feed = feedparser.parse(feed_url)
         for entry in feed.entries:
-            # Safely get 'summary' attribute, default to empty string if not present
-            entry_summary = getattr(entry, 'summary', '')
-            # Combine title and safe summary for keyword search
-            content = entry.title + ' ' + entry_summary
+            # Only use entry.title for keyword search
+            content = entry.title
             if any(re.search(re.escape(keyword), content, re.IGNORECASE) for keyword in keywords):
                 article = {
                     'title': entry.title,
                     'link': entry.link,
-                    'summary': entry_summary,
+                    # Omitting 'summary' from the articles since we're simplifying the function
                 }
                 filtered_articles.append(article)
     return filtered_articles
-
-
 
 def generate_rss_feed(filtered_articles):
     fg = FeedGenerator()
