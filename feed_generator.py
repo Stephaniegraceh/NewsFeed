@@ -13,22 +13,37 @@ import feedparser
 import re
 from feedgen.feed import FeedGenerator
 
+import requests
+from bs4 import BeautifulSoup
+
+def extract_social_image_url(article_url):
+    try:
+        response = requests.get(article_url)
+        response.raise_for_status()  # Raises an HTTPError if the response status code is 4XX/5XX
+        soup = BeautifulSoup(response.text, 'html.parser')
+        meta_tag = soup.find('meta', property='og:image')
+        if meta_tag and 'content' in meta_tag.attrs:
+            return meta_tag.attrs['content']
+    except Exception as e:
+        print(f"Error fetching social image from {article_url}: {e}")
+    return "default_image_url_here"  # Fallback image URL
+
 def fetch_filtered_articles(rss_feeds, keywords):
     filtered_articles = []
     for feed_url in rss_feeds:
         feed = feedparser.parse(feed_url)
         for entry in feed.entries:
             content = entry.title
-            pub_date = entry.get('pubDate', 'No date provided')  # Extract pubDate
             if any(re.search(re.escape(keyword), content, re.IGNORECASE) for keyword in keywords):
+                image_url = extract_social_image_url(entry.link)  # Extract social image URL
                 article = {
                     'title': entry.title,
                     'link': entry.link,
-                    'pubDate': pub_date,  # Store pubDate
+                    'pubDate': entry.get('pubDate', 'No date provided'),
+                    'image_url': image_url,  # Include extracted image URL
                 }
                 filtered_articles.append(article)
     return filtered_articles
-
 
 def generate_html_feed(filtered_articles):
     html_content = """
@@ -40,20 +55,39 @@ def generate_html_feed(filtered_articles):
             body {
                 font-family: 'Open Sans', sans-serif;
                 margin: 40px;
-                font-size: 12px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
             }
-            article {
-                margin-bottom: 20px;
+            .article-tile {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                color: white;
             }
-            h1 {
-                font-size: 24px;
+            .article-tile a {
+                color: white;
+                text-decoration: none;
             }
-            h2 {
-                font-size: 14px;
+            .article-tile img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
-            .pubDate {
-                font-size: 12px;
-                color: #666;
+            .overlay {
+                position: absolute;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+                color: #f1f1f1;
+                width: 100%;
+                transition: .5s ease;
+                opacity:0;
+                font-size: 20px;
+                padding: 20px;
+                text-align: center;
+            }
+            .article-tile:hover .overlay {
+                opacity: 1;
             }
         </style>
     </head>
@@ -63,18 +97,18 @@ def generate_html_feed(filtered_articles):
 
     for article in filtered_articles:
         html_content += f"""
-        <article>
-            <h2><a href='{article['link']}'>{article['title']}</a></h2>
-            <p class="pubDate">{article['pubDate']}</p>
-        </article>
+        <div class="article-tile">
+            <a href="{article['link']}">
+                <img src="{article['image_url']}" alt="">
+                <div class="overlay">{article['title']}</div>
+            </a>
+        </div>
         """
     
     html_content += "</body></html>"
     
-    # Save the HTML content to a file
     with open('index.html', 'w') as html_file:
         html_file.write(html_content)
-
         
 rss_feeds = [
     'https://www.theguardian.com/uk/rss',
