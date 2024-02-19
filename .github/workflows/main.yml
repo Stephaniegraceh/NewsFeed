@@ -31,4 +31,4 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add feed.xml
         git commit -m "Update feed" -a || echo "No changes to commit"
-        git push --set-upstream https://${{ secrets.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 }}@github.com/Stephaniegraceh/NewsFeed.git main || echo "No changes to push"
+        git push --set-upstream https://${{ secrets.RSS_SECRET}}@github.com/Stephaniegraceh/NewsFeed.git main || echo "No changes to push"
