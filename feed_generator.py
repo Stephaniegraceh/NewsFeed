@@ -42,41 +42,46 @@ def generate_html_feed(filtered_articles):
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            margin: 40px;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
         .article-tile {
-            width: 300px;
-            height: auto;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .article-tile a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            height: 100%;
+            position: relative;
+            width: 1600px; /* Width of tile */
+            height: 900px; /* Height of tile */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* Ensures content is contained within corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
         }
         .article-tile img {
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers tile */
+            border-radius: 8px; /* Rounded corners */
         }
         .overlay {
-            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-            padding: 20px;
-            position: relative;
+            position: absolute;
             bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7)); /* Gradient overlay */
+            color: white;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .overlay .title {
-            font-size: 18px;
+            font-size: 36px; /* Title font size */
+            margin: 0;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
         }
         .overlay .date {
-            font-size: 14px;
+            font-size: 18px; /* Date font size */
+            margin: 0;
         }
     </style>
 </head>
@@ -86,13 +91,11 @@ def generate_html_feed(filtered_articles):
     for article in filtered_articles:
         html_content += f"""
     <div class="article-tile">
-        <a href="{article['link']}">
-            <img src="{article['image_url']}" alt="Article image">
-            <div class="overlay">
-                <div class="title">{article['title']}</div>
-                <div class="date">{article['pubDate']}</div>
-            </div>
-        </a>
+        <img src="{article['image_url']}" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">{article['title']}</h2>
+            <p class="date">{article['pubDate']}</p>
+        </div>
     </div>
 """
     html_content += "</body></html>"
