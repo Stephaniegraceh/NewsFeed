@@ -37,30 +37,16 @@ def generate_html_feed(filtered_articles):
             body {
                 font-family: 'Open Sans', sans-serif;
                 margin: 40px;
-                font-size: 12px; /* Default font size */
+                font-size: 12px; /* Adjusted font size for body */
             }
             article {
                 margin-bottom: 20px;
             }
             h1 {
-                color: #333;
-                font-size: 24px; /* Title font size */
+                font-size: 24px; /* Adjusted font size for main title */
             }
             h2 {
-                font-size: 14px; /* Article title font size */
-            }
-            .article-meta {
-                color: #555;
-                font-size: 10px; /* Smaller font size for meta information */
-            }
-            img.thumbnail {
-                width: 100px; /* Thumbnail size */
-                height: auto;
-                float: left;
-                margin-right: 15px; /* Space between image and text */
-            }
-            .clear {
-                clear: both; /* Clear float */
+                font-size: 14px; /* Adjusted font size for article titles */
             }
         </style>
     </head>
@@ -69,28 +55,18 @@ def generate_html_feed(filtered_articles):
     """
 
     for article in filtered_articles:
-        article_date = "Unknown date"  # Placeholder, replace with actual date if available
-        thumbnail_url = "path/to/default/thumbnail.jpg"  # Placeholder, replace with actual image URL if available
-        # If your article dictionary includes 'date' and 'thumbnail' keys, use them
-        # article_date = article.get('date', 'Unknown date')
-        # thumbnail_url = article.get('thumbnail', 'path/to/default/thumbnail.jpg')
-
         html_content += f"""
         <article>
-            <img src="{thumbnail_url}" class="thumbnail">
             <h2><a href='{article['link']}'>{article['title']}</a></h2>
-            <p class="article-meta">Published on {article_date}</p>
-            <div class="clear"></div>
         </article>
         """
-
+    
     html_content += "</body></html>"
     
     # Save the HTML content to a file
     with open('index.html', 'w') as html_file:
         html_file.write(html_content)
-
-
+        
 rss_feeds = [
     'https://www.theguardian.com/uk/rss',
     'https://www.gov.uk/search/news-and-communications.atom',
