@@ -9,9 +9,9 @@ Original file is located at
 
 # feed_generator.py
 
-!pip install Flask
-!pip install feedparser
-!pip install feedgen
+pip install Flask
+pip install feedparser
+pip install feedgen
 
 import feedparser
 import re
