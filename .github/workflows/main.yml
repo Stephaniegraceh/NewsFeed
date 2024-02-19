@@ -32,3 +32,4 @@ jobs:
         git add feed.xml  # Track feed.xml specifically
         git commit -m "Update feed" -a || echo "No changes to commit"
         git push || echo "No changes to push"
+ 
