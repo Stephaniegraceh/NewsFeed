@@ -29,13 +29,13 @@ def fetch_filtered_articles(rss_feeds, keywords):
 
 def generate_rss_feed(filtered_articles):
     fg = FeedGenerator()
-    fg.id('https://Stephaniegraceh.github.io/NewsFeed/feed.xml')
+    fg.id('https://Stephaniegraceh.github.io/NewsFeed')
     fg.title('NewsFeed')
     fg.link(href='https://Stephaniegraceh.github.io/NewsFeed/feed.xml', rel='alternate')
     fg.description('Filtered Article Feed (WH)')
     for article in filtered_articles:
         fg.add_entry(title=article['title'], link={'href': article['link']}, description=article['summary'])
-
+    
     fg.rss_file('feed.xml')  # Save the RSS feed to a file
 
 rss_feeds = [
@@ -59,13 +59,13 @@ rss_feeds = [
 ]
 
 keywords = [
-    'climate change', 'harassment', 'dentist', 'train', 'council','bus', 'transport',
+    'climate change', 'harassment', 'dentist', 'train', 'council', 'bus', 'transport',
     'Wera Hobhouse', 'Lib Dem', 'global warming', 'renewable energy', 'climate',
     'Department for Energy Security and Net Zero', 'Department for Food Environment and Rural affairs',
-    'environment', 'community energy', 'Liberal Democrat', 'biodiversity','nuclear',
-    'immigration','Rwanda','weather', 'wildfires', 'pre-payment meter', 'Bath',
-    'Conservative', 'misogyny','sexual','NHS','Osteoperosis','cycling','Prime Minister',
-    'trauma','eating disorder'
+    'environment', 'community energy', 'Liberal Democrat', 'biodiversity', 'nuclear',
+    'immigration', 'Rwanda', 'weather', 'wildfires', 'pre-payment meter', 'Bath',
+    'Conservative', 'misogyny', 'sexual', 'NHS', 'Osteoporosis', 'cycling', 'Prime Minister',
+    'trauma', 'eating disorder'
 ]
 
 filtered_articles = fetch_filtered_articles(rss_feeds, keywords)
