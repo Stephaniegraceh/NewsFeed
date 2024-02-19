@@ -73,7 +73,7 @@ def generate_html_feed(filtered_articles):
             border-radius: 0 0 8px 8px; /* Rounded corners for the bottom */
         }
         .overlay .title {
-            font-size: 12px; /* Adjusted title font size */
+            font-size: 14px; /* Adjusted title font size */
             margin: 0;
             text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow */
         }
