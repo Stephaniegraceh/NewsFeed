@@ -9,6 +9,10 @@ Original file is located at
 
 # feed_generator.py
 
+import feedparser
+import re
+from feedgen.feed import FeedGenerator
+
 def fetch_filtered_articles(rss_feeds, keywords):
     filtered_articles = []
     for feed_url in rss_feeds:
