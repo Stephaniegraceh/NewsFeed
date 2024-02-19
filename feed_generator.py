@@ -58,7 +58,7 @@ rss_feeds =  rss_feeds = [
     'https://www.standard.co.uk/news/politics/rss',
 
     ]
-    keywords = ['climate change', 'harassment', 'dentist', 'train', 'council','bus', 'transport', 'Wera Hobhouse', 'Lib Dem', 'global warming', 'renewable energy', 'climate', 'Department for Energy Security and Net Zero', 'Department for Food Environment and Rural affairs','environment', 'community energy', 'Liberal Democrat', 'biodiversity','nuclear','immigration','Rwanda','weather', 'wildfires', 'pre-payment meter', 'Bath', 'Conservative', 'misogyny','sexual','NHS','Osteoperosis','cycling','Prime Minister','trauma','eating disorder']
+        keywords = ['climate change', 'harassment', 'dentist', 'train', 'council','bus', 'transport', 'Wera Hobhouse', 'Lib Dem', 'global warming', 'renewable energy', 'climate', 'Department for Energy Security and Net Zero', 'Department for Food Environment and Rural affairs','environment', 'community energy', 'Liberal Democrat', 'biodiversity','nuclear','immigration','Rwanda','weather', 'wildfires', 'pre-payment meter', 'Bath', 'Conservative', 'misogyny','sexual','NHS','Osteoperosis','cycling','Prime Minister','trauma','eating disorder']
 
 filtered_articles = fetch_filtered_articles(rss_feeds, keywords)
 generate_rss_feed(filtered_articles)
