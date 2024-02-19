@@ -46,7 +46,7 @@ def fetch_filtered_articles(rss_feeds, keywords):
     return filtered_articles
 
 def generate_html_feed(filtered_articles):
-    html_content = """
+    html_content = ""
  <html>
 <head>
     <title>NewsFeed</title>
