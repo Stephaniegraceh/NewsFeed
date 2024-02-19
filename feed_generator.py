@@ -29,7 +29,7 @@ def fetch_filtered_articles(rss_feeds, keywords):
 
 def generate_rss_feed(filtered_articles):
     fg = FeedGenerator()
-    fg.id('https://Stephaniegraceh.github.io/NewsFeed/')
+    fg.id('https://Stephaniegraceh.github.io/NewsFeed/feed.xml')
     fg.title('NewsFeed')
     fg.link(href='https://Stephaniegraceh.github.io/NewsFeed/feed.xml', rel='alternate')
     fg.description('Filtered Article Feed (WH)')
