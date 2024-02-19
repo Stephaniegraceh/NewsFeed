@@ -48,6 +48,9 @@ def generate_html_feed(filtered_articles):
             justify-content: center;
             gap: 20px;
         }
+        a {
+            text-decoration: none; /* Removes the underline from links */
+        }
         .article-tile, .team-wera-tile {
             position: relative;
             width: 300px; /* Adjusted width of tile for 4 per row */
@@ -73,33 +76,36 @@ def generate_html_feed(filtered_articles):
             border-radius: 0 0 8px 8px; /* Rounded corners for the bottom */
         }
         .overlay .title {
-            font-size: 14px; /* Adjusted title font size */
+            font-size: 20px; /* Adjusted title font size */
             margin: 0;
             text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow */
         }
         .overlay .date {
-            font-size: 10px; /* Adjusted date font size */
+            font-size: 14px; /* Adjusted date font size */
             margin: 0;
         }
     </style>
 </head>
 <body>
 """
-    # Add the 'Team Wera' tile as the first tile
+    # Add the 'Team Wera' tile
     html_content += f"""
     <div class="team-wera-tile">
         <img src="team_wera.png" alt="Team Wera">
     </div>
 """
     for article in filtered_articles:
+        # Wrap the tile with an <a> tag to make it a hyperlink
         html_content += f"""
-    <div class="article-tile">
-        <img src="{article['image_url']}" alt="Article image">
-        <div class="overlay">
-            <h2 class="title">{article['title']}</h2>
-            <p class="date">{article['pubDate']}</p>
+    <a href="{article['link']}" target="_blank">
+        <div class="article-tile">
+            <img src="{article['image_url']}" alt="Article image">
+            <div class="overlay">
+                <h2 class="title">{article['title']}</h2>
+                <p class="date">{article['pubDate']}</p>
+            </div>
         </div>
-    </div>
+    </a>
 """
     html_content += "</body></html>"
     
