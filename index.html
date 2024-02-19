@@ -6,41 +6,46 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            margin: 40px;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
         .article-tile {
-            width: 300px;
-            height: auto;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .article-tile a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            height: 100%;
+            position: relative;
+            width: 1600px; /* Width of tile */
+            height: 900px; /* Height of tile */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* Ensures content is contained within corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
         }
         .article-tile img {
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers tile */
+            border-radius: 8px; /* Rounded corners */
         }
         .overlay {
-            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-            padding: 20px;
-            position: relative;
+            position: absolute;
             bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7)); /* Gradient overlay */
+            color: white;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .overlay .title {
-            font-size: 18px;
+            font-size: 36px; /* Title font size */
+            margin: 0;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
         }
         .overlay .date {
-            font-size: 14px;
+            font-size: 18px; /* Date font size */
+            margin: 0;
         }
     </style>
 </head>
@@ -48,792 +53,666 @@
     <h1>Filtered Article Feed</h1>
 
     <div class="article-tile">
-        <a href="https://www.theguardian.com/uk-news/2024/feb/19/tories-rwanda-safety-bill-is-an-abuse-of-the-rule-of-law">
-            <img src="https://i.guim.co.uk/img/media/f9de7781e1b649a6727fb70486ccd3b685f6745c/0_191_3500_2100/master/3500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=04e39abce61b4e11125eeb795c6268cd" alt="Article image">
-            <div class="overlay">
-                <div class="title">Tories’ Rwanda safety bill is an abuse of the rule of law | Letter</div>
-                <div class="date">Mon, 19 Feb 2024 16:54:14 GMT</div>
-            </div>
-        </a>
+        <img src="https://i.guim.co.uk/img/media/f9de7781e1b649a6727fb70486ccd3b685f6745c/0_191_3500_2100/master/3500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=04e39abce61b4e11125eeb795c6268cd" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Tories’ Rwanda safety bill is an abuse of the rule of law | Letter</h2>
+            <p class="date">Mon, 19 Feb 2024 16:54:14 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.theguardian.com/us-news/2024/feb/19/new-york-lobbyists-climate-crisis">
-            <img src="https://i.guim.co.uk/img/media/9fa51e2b30efa7a010f46c9da495510fff210bdf/167_93_2645_1587/master/2645.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e90f7ab2c1aa9df9ea297f7a360a3e2e" alt="Article image">
-            <div class="overlay">
-                <div class="title">New York lobbyists ‘aiding and abetting’ climate crisis, research reveals</div>
-                <div class="date">Mon, 19 Feb 2024 12:00:13 GMT</div>
-            </div>
-        </a>
+        <img src="https://i.guim.co.uk/img/media/9fa51e2b30efa7a010f46c9da495510fff210bdf/167_93_2645_1587/master/2645.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e90f7ab2c1aa9df9ea297f7a360a3e2e" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">New York lobbyists ‘aiding and abetting’ climate crisis, research reveals</h2>
+            <p class="date">Mon, 19 Feb 2024 12:00:13 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.theguardian.com/environment/2024/feb/19/weather-tracker-ex-tropical-cyclone-lincoln-soaks-northern-australia">
-            <img src="https://i.guim.co.uk/img/media/8602e870968b4ef7261c80ee18b8c76377c16cc8/0_187_5616_3370/master/5616.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0a0622589547bf9be581e9f368605ce9" alt="Article image">
-            <div class="overlay">
-                <div class="title">Weather tracker: Ex-Tropical Cyclone Lincoln soaks northern Australia</div>
-                <div class="date">Mon, 19 Feb 2024 07:39:01 GMT</div>
-            </div>
-        </a>
+        <img src="https://i.guim.co.uk/img/media/8602e870968b4ef7261c80ee18b8c76377c16cc8/0_187_5616_3370/master/5616.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0a0622589547bf9be581e9f368605ce9" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Weather tracker: Ex-Tropical Cyclone Lincoln soaks northern Australia</h2>
+            <p class="date">Mon, 19 Feb 2024 07:39:01 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.theguardian.com/level-the-paying-field/2024/jan/25/it-becomes-a-great-talking-point-two-business-owners-on-why-they-need-only-an-iphone-to-take-payments">
-            <img src="https://i.guim.co.uk/img/media/e42b77e20b456578dc84d73f39d2b5daa79ff654/0_47_1900_1140/master/1900.jpg?width=700&quality=85&auto=format&fit=max&s=5aca036da29c2eaae73272ae1c2eb0a6" alt="Article image">
-            <div class="overlay">
-                <div class="title">‘It becomes a great talking point’: two business owners on why they need only an iPhone to take payments</div>
-                <div class="date">Thu, 25 Jan 2024 10:59:33 GMT</div>
-            </div>
-        </a>
+        <img src="https://i.guim.co.uk/img/media/e42b77e20b456578dc84d73f39d2b5daa79ff654/0_47_1900_1140/master/1900.jpg?width=700&quality=85&auto=format&fit=max&s=5aca036da29c2eaae73272ae1c2eb0a6" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">‘It becomes a great talking point’: two business owners on why they need only an iPhone to take payments</h2>
+            <p class="date">Thu, 25 Jan 2024 10:59:33 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.theguardian.com/society/2024/feb/19/it-might-have-been-different-how-norfolk-and-suffolk-nhs-foundation-trust-is-failing-mental-health-patients">
-            <img src="https://i.guim.co.uk/img/media/c50f59551cbbc289b37156c45b8d2a579b038b84/0_0_6240_3744/master/6240.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=fa88654140ca6d460388f4bde277a5f4" alt="Article image">
-            <div class="overlay">
-                <div class="title">‘It might have been different’: how Norfolk and Suffolk NHS foundation trust is failing mental health patients</div>
-                <div class="date">Mon, 19 Feb 2024 12:00:12 GMT</div>
-            </div>
-        </a>
+        <img src="https://i.guim.co.uk/img/media/c50f59551cbbc289b37156c45b8d2a579b038b84/0_0_6240_3744/master/6240.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=fa88654140ca6d460388f4bde277a5f4" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">‘It might have been different’: how Norfolk and Suffolk NHS foundation trust is failing mental health patients</h2>
+            <p class="date">Mon, 19 Feb 2024 12:00:12 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.gov.uk/government/speeches/the-uk-calls-for-calm-dialogue-to-de-escalate-the-situation-in-somalia-uk-statement-at-the-un-security-council">
-            <img src="https://assets.publishing.service.gov.uk/media/65d389bc0f4eb1ec90a98209/James_Somalia.png" alt="Article image">
-            <div class="overlay">
-                <div class="title">The UK calls for calm dialogue to de-escalate the situation in Somalia: UK statement at the UN Security Council</div>
-                <div class="date">No date provided</div>
-            </div>
-        </a>
+        <img src="https://assets.publishing.service.gov.uk/media/65d389bc0f4eb1ec90a98209/James_Somalia.png" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">The UK calls for calm dialogue to de-escalate the situation in Somalia: UK statement at the UN Security Council</h2>
+            <p class="date">No date provided</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.gov.uk/government/news/transport-secretary-announces-sir-gareth-rhys-williams-as-new-national-highways-chair">
-            <img src="https://assets.publishing.service.gov.uk/media/65d336260f4eb1f5bba9813f/s960_gareth-rhys-williams-960.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Transport Secretary announces Sir Gareth Rhys Williams as new National Highways Chair</div>
-                <div class="date">No date provided</div>
-            </div>
-        </a>
+        <img src="https://assets.publishing.service.gov.uk/media/65d336260f4eb1f5bba9813f/s960_gareth-rhys-williams-960.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Transport Secretary announces Sir Gareth Rhys Williams as new National Highways Chair</h2>
+            <p class="date">No date provided</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.gov.uk/government/news/vacancy-for-a-business-support-manager">
-            <img src="https://assets.publishing.service.gov.uk/media/618e46078fa8f5038358bf4a/s960_MAIB_LOGO_Sea.png" alt="Article image">
-            <div class="overlay">
-                <div class="title">Vacancy for a Business Support Manager</div>
-                <div class="date">No date provided</div>
-            </div>
-        </a>
+        <img src="https://assets.publishing.service.gov.uk/media/618e46078fa8f5038358bf4a/s960_MAIB_LOGO_Sea.png" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Vacancy for a Business Support Manager</h2>
+            <p class="date">No date provided</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.gov.uk/government/news/new-expert-will-champion-small-businesses-across-government">
-            <img src="https://assets.publishing.service.gov.uk/media/65d31ada423931a60bb7b8a5/s960_Shirley-Cooper-pic.png" alt="Article image">
-            <div class="overlay">
-                <div class="title">New expert will champion small businesses across Government</div>
-                <div class="date">No date provided</div>
-            </div>
-        </a>
+        <img src="https://assets.publishing.service.gov.uk/media/65d31ada423931a60bb7b8a5/s960_Shirley-Cooper-pic.png" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">New expert will champion small businesses across Government</h2>
+            <p class="date">No date provided</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.gov.uk/government/news/trade-update-uk-gulf-cooperation-council-fta-negotiations">
-            <img src="https://assets.publishing.service.gov.uk/media/64539946faf4aa0012e132d1/s960_DBT_Plaque-2.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Trade Update: UK-Gulf Cooperation Council FTA negotiations</div>
-                <div class="date">No date provided</div>
-            </div>
-        </a>
+        <img src="https://assets.publishing.service.gov.uk/media/64539946faf4aa0012e132d1/s960_DBT_Plaque-2.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Trade Update: UK-Gulf Cooperation Council FTA negotiations</h2>
+            <p class="date">No date provided</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.bathecho.co.uk/news/community/fencer-prosecuted-failing-carry-out-work-105341/">
-            <img src="https://www.bathecho.co.uk/uploads/2019/03/guildhall-bath-bathnes.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Fencer prosecuted by council after failing to carry out agreed work</div>
-                <div class="date">Mon, 19 Feb 2024 09:15:22 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.bathecho.co.uk/uploads/2019/03/guildhall-bath-bathnes.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Fencer prosecuted by council after failing to carry out agreed work</h2>
+            <p class="date">Mon, 19 Feb 2024 09:15:22 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.bathecho.co.uk/news/community/mp-makes-visit-jane-austen-centre-105340/">
-            <img src="https://www.bathecho.co.uk/uploads/2024/02/wera-hobhouse-mpJane-Austen-visit-cred.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath MP Wera Hobhouse makes special visit to Jane Austen centre</div>
-                <div class="date">Mon, 19 Feb 2024 09:00:23 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.bathecho.co.uk/uploads/2024/02/wera-hobhouse-mpJane-Austen-visit-cred.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath MP Wera Hobhouse makes special visit to Jane Austen centre</h2>
+            <p class="date">Mon, 19 Feb 2024 09:00:23 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.bathecho.co.uk/news/community/66k-grant-provide-mentors-youngsters-105339/">
-            <img src="https://www.bathecho.co.uk/uploads/2024/02/MCF-Mentoring-Plus-cred.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">£66,000 grant to help provide mentors for youngsters across Bath</div>
-                <div class="date">Mon, 19 Feb 2024 08:45:05 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.bathecho.co.uk/uploads/2024/02/MCF-Mentoring-Plus-cred.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">£66,000 grant to help provide mentors for youngsters across Bath</h2>
+            <p class="date">Mon, 19 Feb 2024 08:45:05 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.bathecho.co.uk/news/politics/protest-planned-councillors-discuss-southlands-call-in-105327/">
-            <img src="https://www.bathecho.co.uk/uploads/2023/02/southlands-weston-cred-john-wimperis.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Protest planned as councillors set to discuss Southlands LTN call-in</div>
-                <div class="date">Fri, 16 Feb 2024 09:15:35 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.bathecho.co.uk/uploads/2023/02/southlands-weston-cred-john-wimperis.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Protest planned as councillors set to discuss Southlands LTN call-in</h2>
+            <p class="date">Fri, 16 Feb 2024 09:15:35 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.bathecho.co.uk/news/community/mayor-locals-businesses-switch-off-light-night-105326/">
-            <img src="https://www.bathecho.co.uk/uploads/2023/03/light-pollution-uob-pitches-ss.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Mayor urges locals and businesses to “switch off the light at night”</div>
-                <div class="date">Fri, 16 Feb 2024 09:00:31 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.bathecho.co.uk/uploads/2023/03/light-pollution-uob-pitches-ss.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Mayor urges locals and businesses to “switch off the light at night”</h2>
+            <p class="date">Fri, 16 Feb 2024 09:00:31 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.bathecho.co.uk/news/community/free-charity-places-offered-bath-half-105324/">
-            <img src="https://www.bathecho.co.uk/uploads/2023/10/bathhalf-2023-event-cred.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Free CHSW charity places being offered for the Bath Half Marathon</div>
-                <div class="date">Fri, 16 Feb 2024 08:30:23 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.bathecho.co.uk/uploads/2023/10/bathhalf-2023-event-cred.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Free CHSW charity places being offered for the Bath Half Marathon</h2>
+            <p class="date">Fri, 16 Feb 2024 08:30:23 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.bathecho.co.uk/news/health/hospital-deliver-sustainable-travel-plan-105308/">
-            <img src="https://www.bathecho.co.uk/uploads/2023/06/ruh-ecargo-bike-weca-cred.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath hospital on course to deliver ambitious sustainable travel plan</div>
-                <div class="date">Thu, 15 Feb 2024 09:15:42 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.bathecho.co.uk/uploads/2023/06/ruh-ecargo-bike-weca-cred.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath hospital on course to deliver ambitious sustainable travel plan</h2>
+            <p class="date">Thu, 15 Feb 2024 09:15:42 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.mnrjournal.co.uk/news/cctv-images-released-as-part-of-bath-gbh-inquiry-666814">
-            <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/12/56/Bath%20CCTV%20GBH.jpg?width=548&crop=16:9,smart&quality=75" alt="Article image">
-            <div class="overlay">
-                <div class="title">CCTV images released as part of Bath GBH inquiry</div>
-                <div class="date">Mon, 19 Feb 2024 17:00:00 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/12/56/Bath%20CCTV%20GBH.jpg?width=548&crop=16:9,smart&quality=75" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">CCTV images released as part of Bath GBH inquiry</h2>
+            <p class="date">Mon, 19 Feb 2024 17:00:00 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.mnrjournal.co.uk/news/bath-and-north-east-somerset-road-closures-seven-for-motorists-to-avoid-over-the-next-fortnight-666829">
-            <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/13/381df93cef353c2ba7f640bde6dc5fadY29udGVudHNlYXJjaGFwaSwxNzA4NDMzNTA1-2.54076814.jpg?trim=88,0,94,0&width=1200&crop=16:9,smart&quality=75" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath and North East Somerset road closures: seven for motorists to avoid over the next fortnight</div>
-                <div class="date">Mon, 19 Feb 2024 12:52:15 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/13/381df93cef353c2ba7f640bde6dc5fadY29udGVudHNlYXJjaGFwaSwxNzA4NDMzNTA1-2.54076814.jpg?trim=88,0,94,0&width=1200&crop=16:9,smart&quality=75" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath and North East Somerset road closures: seven for motorists to avoid over the next fortnight</h2>
+            <p class="date">Mon, 19 Feb 2024 12:52:15 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.mnrjournal.co.uk/news/bbc-local-radio-cuts-could-harm-hundreds-of-people-registered-visually-impaired-in-bath-and-north-east-somerset-666790">
-            <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/11/2f7b7dd093cb5d6aaa064049068726b1Y29udGVudHNlYXJjaGFwaSwxNzA4NDI3NDk1-2.74309838.jpg?trim=116,0,464,0&width=1200&crop=16:9,smart&quality=75" alt="Article image">
-            <div class="overlay">
-                <div class="title">BBC local radio cuts 'could harm hundreds of people registered visually impaired in Bath and North East Somerset'</div>
-                <div class="date">Mon, 19 Feb 2024 11:14:23 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/11/2f7b7dd093cb5d6aaa064049068726b1Y29udGVudHNlYXJjaGFwaSwxNzA4NDI3NDk1-2.74309838.jpg?trim=116,0,464,0&width=1200&crop=16:9,smart&quality=75" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">BBC local radio cuts 'could harm hundreds of people registered visually impaired in Bath and North East Somerset'</h2>
+            <p class="date">Mon, 19 Feb 2024 11:14:23 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.mnrjournal.co.uk/news/food-hygiene-ratings-given-to-four-bath-and-north-east-somerset-establishments-666770">
-            <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/10/cc719fd5c636358def43cd916b79be11Y29udGVudHNlYXJjaGFwaSwxNzA4NDIzNjI5-2.30682350.jpg?trim=145,0,217,0&width=1200&crop=16:9,smart&quality=75" alt="Article image">
-            <div class="overlay">
-                <div class="title">Food hygiene ratings given to four Bath and North East Somerset establishments</div>
-                <div class="date">Mon, 19 Feb 2024 10:07:40 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.mnrjournal.co.uk/tindle-static/image/2024/02/19/10/cc719fd5c636358def43cd916b79be11Y29udGVudHNlYXJjaGFwaSwxNzA4NDIzNjI5-2.30682350.jpg?trim=145,0,217,0&width=1200&crop=16:9,smart&quality=75" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Food hygiene ratings given to four Bath and North East Somerset establishments</h2>
+            <p class="date">Mon, 19 Feb 2024 10:07:40 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.independent.co.uk/news/world/americas/crime/harmony-montgomery-key-revelations-b2493194.html">
-            <img src="https://static.independent.co.uk/2022/01/10/15/4B4FB661-F071-4906-91AB-45BBA12492C9.jpeg?quality=75&width=1200&auto=webp" alt="Article image">
-            <div class="overlay">
-                <div class="title">Rampant abuse, damning DNA evidence and a ‘betrayal’ prison letter: Harmony Montgomery trial’s key revelations</div>
-                <div class="date">Mon, 19 Feb 2024 21:18:45 GMT</div>
-            </div>
-        </a>
+        <img src="https://static.independent.co.uk/2022/01/10/15/4B4FB661-F071-4906-91AB-45BBA12492C9.jpeg?quality=75&width=1200&auto=webp" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Rampant abuse, damning DNA evidence and a ‘betrayal’ prison letter: Harmony Montgomery trial’s key revelations</h2>
+            <p class="date">Mon, 19 Feb 2024 21:18:45 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.independent.co.uk/news/world/americas/ruby-franke-arrest-child-abuse-8passengers-b2403320.html">
-            <img src="https://static.independent.co.uk/2023/09/01/07/newFile.jpg?quality=75&width=1200&auto=webp" alt="Article image">
-            <div class="overlay">
-                <div class="title">Ruby Franke gained millions of subscribers to her parental advice YouTube. Now she’s accused of child abuse</div>
-                <div class="date">Mon, 19 Feb 2024 20:52:42 GMT</div>
-            </div>
-        </a>
+        <img src="https://static.independent.co.uk/2023/09/01/07/newFile.jpg?quality=75&width=1200&auto=webp" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Ruby Franke gained millions of subscribers to her parental advice YouTube. Now she’s accused of child abuse</h2>
+            <p class="date">Mon, 19 Feb 2024 20:52:42 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.independent.co.uk/tv/news/alexei-navalny-wife-russia-putin-eu-b2498643.html">
-            <img src="https://cdn.jwplayer.com/v2/media/YmP6B7IS/poster.jpg?width=720" alt="Article image">
-            <div class="overlay">
-                <div class="title">Alexei Navalny’s widow meets with European Council president in Brussels</div>
-                <div class="date">Mon, 19 Feb 2024 20:30:54 GMT</div>
-            </div>
-        </a>
+        <img src="https://cdn.jwplayer.com/v2/media/YmP6B7IS/poster.jpg?width=720" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Alexei Navalny’s widow meets with European Council president in Brussels</h2>
+            <p class="date">Mon, 19 Feb 2024 20:30:54 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.independent.co.uk/tv/culture/amy-dowden-cancer-trolls-abuse-hospital-b2498627.html">
-            <img src="https://cdn.jwplayer.com/v2/media/Ssu2pGNZ/poster.jpg?width=720" alt="Article image">
-            <div class="overlay">
-                <div class="title">Amy Dowden responds to trolls after receiving abuse while in hospital</div>
-                <div class="date">Mon, 19 Feb 2024 18:31:07 GMT</div>
-            </div>
-        </a>
+        <img src="https://cdn.jwplayer.com/v2/media/Ssu2pGNZ/poster.jpg?width=720" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Amy Dowden responds to trolls after receiving abuse while in hospital</h2>
+            <p class="date">Mon, 19 Feb 2024 18:31:07 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.independent.co.uk/news/uk/home-news/martin-lewis-train-east-midlands-railway-b2498695.html">
-            <img src="https://static.independent.co.uk/2024/02/08/10/e8e3f8908ebe64c5317247545fe5bb09Y29udGVudHNlYXJjaGFwaSwxNzA3NDczNzQ0-2.72275098.jpg?quality=75&width=1200&auto=webp" alt="Article image">
-            <div class="overlay">
-                <div class="title">Martin Lewis slams railway company over standing room only train ‘with one working toilet’</div>
-                <div class="date">Mon, 19 Feb 2024 17:58:47 GMT</div>
-            </div>
-        </a>
+        <img src="https://static.independent.co.uk/2024/02/08/10/e8e3f8908ebe64c5317247545fe5bb09Y29udGVudHNlYXJjaGFwaSwxNzA3NDczNzQ0-2.72275098.jpg?quality=75&width=1200&auto=webp" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Martin Lewis slams railway company over standing room only train ‘with one working toilet’</h2>
+            <p class="date">Mon, 19 Feb 2024 17:58:47 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.independent.co.uk/life-style/ben-hart-breakdancing-tiktok-b2496944.html">
-            <img src="https://static.independent.co.uk/2024/02/15/17/madi-hart-tiktok.png?quality=75&width=1200&auto=webp" alt="Article image">
-            <div class="overlay">
-                <div class="title">Woman reflects on ‘funny trauma’ around father’s breakdancing career</div>
-                <div class="date">Mon, 19 Feb 2024 17:19:54 GMT</div>
-            </div>
-        </a>
+        <img src="https://static.independent.co.uk/2024/02/15/17/madi-hart-tiktok.png?quality=75&width=1200&auto=webp" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Woman reflects on ‘funny trauma’ around father’s breakdancing career</h2>
+            <p class="date">Mon, 19 Feb 2024 17:19:54 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.desmog.com/2024/02/19/eni-climate-trial-greenpeace-italy-recommon-global-warming-lawsuit-report-climate-denial/">
-            <img src="https://www.desmog.com/wp-content/uploads/2023/09/Enilogo.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Climate Trial Against Oil Giant Eni Opens in Italy</div>
-                <div class="date">Mon, 19 Feb 2024 13:11:26 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.desmog.com/wp-content/uploads/2023/09/Enilogo.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Climate Trial Against Oil Giant Eni Opens in Italy</h2>
+            <p class="date">Mon, 19 Feb 2024 13:11:26 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.desmog.com/2024/02/15/recycling-plastic-center-for-climate-integrity-report-fraud/">
-            <img src="https://www.desmog.com/wp-content/uploads/2024/02/image-from-rawpixel-id-9658088-original-scaled.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Report: Plastics, Oil Industry Deceived Public on Recycling Use for More Than 50 Years</div>
-                <div class="date">Thu, 15 Feb 2024 17:41:57 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.desmog.com/wp-content/uploads/2024/02/image-from-rawpixel-id-9658088-original-scaled.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Report: Plastics, Oil Industry Deceived Public on Recycling Use for More Than 50 Years</h2>
+            <p class="date">Thu, 15 Feb 2024 17:41:57 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.desmog.com/2024/02/15/government-new-low-pay-commission-advisor-baroness-philippa-stroud-heads-climate-denial-network/">
-            <img src="https://www.desmog.com/wp-content/uploads/2024/02/Stroud.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Government’s New Low Pay Advisor Heads Climate Denial Network</div>
-                <div class="date">Thu, 15 Feb 2024 16:10:32 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.desmog.com/wp-content/uploads/2024/02/Stroud.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Government’s New Low Pay Advisor Heads Climate Denial Network</h2>
+            <p class="date">Thu, 15 Feb 2024 16:10:32 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.desmog.com/2024/02/13/reform-candidate-rupert-lowe-green-tory-by-election-record-climate-science-denial/">
-            <img src="https://www.desmog.com/wp-content/uploads/2024/02/rupert-lowe.png" alt="Article image">
-            <div class="overlay">
-                <div class="title">Reform Candidate in ‘Green Tory’ By-Election Has Record of Climate Science Denial</div>
-                <div class="date">Tue, 13 Feb 2024 17:04:43 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.desmog.com/wp-content/uploads/2024/02/rupert-lowe.png" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Reform Candidate in ‘Green Tory’ By-Election Has Record of Climate Science Denial</h2>
+            <p class="date">Tue, 13 Feb 2024 17:04:43 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.desmog.com/2024/02/12/qa-saving-ourselves-from-climate-shocks-to-climate-action/">
-            <img src="https://www.desmog.com/wp-content/uploads/2024/02/53199797956_78ce1da3e7_k.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Q&A: ‘Saving Ourselves: From Climate Shocks to Climate Action’</div>
-                <div class="date">Mon, 12 Feb 2024 18:06:58 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.desmog.com/wp-content/uploads/2024/02/53199797956_78ce1da3e7_k.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Q&A: ‘Saving Ourselves: From Climate Shocks to Climate Action’</h2>
+            <p class="date">Mon, 12 Feb 2024 18:06:58 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.desmog.com/2024/02/09/pro-coal-mp-appointed-to-lead-influential-cross-party-environment-group/">
-            <img src="https://www.desmog.com/wp-content/uploads/2024/02/Harrison.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Pro-Coal MP Appointed to Lead Influential Cross-Party Environment Group</div>
-                <div class="date">Fri, 09 Feb 2024 12:38:01 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.desmog.com/wp-content/uploads/2024/02/Harrison.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Pro-Coal MP Appointed to Lead Influential Cross-Party Environment Group</h2>
+            <p class="date">Fri, 09 Feb 2024 12:38:01 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/news/4175695/uk-launches-environmental-science-group-assess-impacts-deep-sea-mining">
-            <img src="https://image.chitra.live/api/v1/wps/e14a272/862fddef-ebc6-4367-bc31-f3bca7a0ce58/11/iStock-1045454300-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">UK launches environmental science group to assess impacts of deep sea mining</div>
-                <div class="date">Mon, 19 Feb 2024 13:46:40 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/e14a272/862fddef-ebc6-4367-bc31-f3bca7a0ce58/11/iStock-1045454300-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">UK launches environmental science group to assess impacts of deep sea mining</h2>
+            <p class="date">Mon, 19 Feb 2024 13:46:40 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/news/4175546/study-global-public-support-climate-action-systematically-underestimated">
-            <img src="https://image.chitra.live/api/v1/wps/ec5e256/3791eb69-e874-4489-8b9b-7c203474462d/8/iStock-1462151119-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Study: Global public support for climate action 'systematically underestimated'</div>
-                <div class="date">Mon, 19 Feb 2024 10:20:09 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/ec5e256/3791eb69-e874-4489-8b9b-7c203474462d/8/iStock-1462151119-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Study: Global public support for climate action 'systematically underestimated'</h2>
+            <p class="date">Mon, 19 Feb 2024 10:20:09 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/news-analysis/4173323/global-briefing-generation-starts-worlds-largest-renewable-energy-park">
-            <img src="https://image.chitra.live/api/v1/wps/f4d5f3d/2a702d8f-0383-4912-8dd4-219fcccccd70/5/Khavda-Renewable-Park-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Global Briefing: Generation starts at 'world's largest' renewable energy park</div>
-                <div class="date">Fri, 16 Feb 2024 16:02:38 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/f4d5f3d/2a702d8f-0383-4912-8dd4-219fcccccd70/5/Khavda-Renewable-Park-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Global Briefing: Generation starts at 'world's largest' renewable energy park</h2>
+            <p class="date">Fri, 16 Feb 2024 16:02:38 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/news/4175132/jp-morgan-street-quit-climate-action-100-investor-group">
-            <img src="https://image.chitra.live/api/v1/wps/4d6f9f8/9298e8b8-ab77-4606-81c8-76eb09e5db13/4/iStock-1235122414-business-london-city-towers-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">JP Morgan and State Street quit Climate Action 100+ investor group</div>
-                <div class="date">Fri, 16 Feb 2024 12:14:18 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/4d6f9f8/9298e8b8-ab77-4606-81c8-76eb09e5db13/4/iStock-1235122414-business-london-city-towers-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">JP Morgan and State Street quit Climate Action 100+ investor group</h2>
+            <p class="date">Fri, 16 Feb 2024 12:14:18 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/blog/4175615/climateflation-fears-biodiversity-net-gain-launches-labours-green-prosperity-plan-ambitious">
-            <img src="https://image.chitra.live/api/v1/wps/dd0d956/12b34122-e0d6-40a4-8f3e-e3bd00c34954/0/Editor-s-briefing-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">'Climateflation' fears, Biodiversity Net Gain launches, and is Labour's Green Prosperity Plan ambitious enough?</div>
-                <div class="date">Fri, 16 Feb 2024 11:30:41 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/dd0d956/12b34122-e0d6-40a4-8f3e-e3bd00c34954/0/Editor-s-briefing-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">'Climateflation' fears, Biodiversity Net Gain launches, and is Labour's Green Prosperity Plan ambitious enough?</h2>
+            <p class="date">Fri, 16 Feb 2024 11:30:41 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/news/4175109/barclays-fossil-fuel-pledge-biodiversity-net-gain-rules-businessgreens-most-read-stories">
-            <img src="https://image.chitra.live/api/v1/wps/3f04989/48253333-1318-4390-bab3-c4f8ea11c971/1/iStock-1415770235-1-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Barclays' fossil fuel pledge and biodiversity net gain rules: BusinessGreen's most read stories of the week</div>
-                <div class="date">Fri, 16 Feb 2024 11:08:58 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/3f04989/48253333-1318-4390-bab3-c4f8ea11c971/1/iStock-1415770235-1-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Barclays' fossil fuel pledge and biodiversity net gain rules: BusinessGreen's most read stories of the week</h2>
+            <p class="date">Fri, 16 Feb 2024 11:08:58 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/feature/4174134/uk-green-business-awards-tips-help-entry-stand">
-            <img src="https://image.chitra.live/api/v1/wps/921231d/4e280d78-3e52-450d-ba6a-e4f7505b477a/4/BGUKGBA23-logo-TM-STACKED-370x229.png" alt="Article image">
-            <div class="overlay">
-                <div class="title">UK Green Business Awards: 10 top tips to help your entry stand out</div>
-                <div class="date">Fri, 16 Feb 2024 08:46:46 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/921231d/4e280d78-3e52-450d-ba6a-e4f7505b477a/4/BGUKGBA23-logo-TM-STACKED-370x229.png" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">UK Green Business Awards: 10 top tips to help your entry stand out</h2>
+            <p class="date">Fri, 16 Feb 2024 08:46:46 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/news/4174858/europes-biggest-zev-bus-market-smmt-hails-record-zero-emission-bus-sales-2023">
-            <img src="https://image.chitra.live/api/v1/wps/3878e12/2648ed8b-f067-489d-ba9f-1eac316cd196/14/Go-North-East-electric-bus-in-Newcastle-1-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">'Europe's biggest ZEV bus market': SMMT hails record zero emission bus sales in 2023</div>
-                <div class="date">Fri, 16 Feb 2024 00:01:08 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/3878e12/2648ed8b-f067-489d-ba9f-1eac316cd196/14/Go-North-East-electric-bus-in-Newcastle-1-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">'Europe's biggest ZEV bus market': SMMT hails record zero emission bus sales in 2023</h2>
+            <p class="date">Fri, 16 Feb 2024 00:01:08 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/news/4174535/uk-canada-ink-nuclear-fusion-fuel-partnership">
-            <img src="https://image.chitra.live/api/v1/wps/2b1eca2/54feec68-ab21-49f0-bc91-5f909806b948/1/nuclear-fusion-370x229.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">UK and Canada ink nuclear fusion fuel partnership</div>
-                <div class="date">Thu, 15 Feb 2024 10:14:22 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/2b1eca2/54feec68-ab21-49f0-bc91-5f909806b948/1/nuclear-fusion-370x229.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">UK and Canada ink nuclear fusion fuel partnership</h2>
+            <p class="date">Thu, 15 Feb 2024 10:14:22 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.businessgreen.com/opinion/4174461/businesses-help-bring-englands-troubled-waters-health">
-            <img src="https://image.chitra.live/api/v1/wps/2e02856/c32e0bf6-6e28-49f1-ab05-4a71399a4552/5/Ali-Morse-Water-Policy-Manager-TWT-portrait-edited-version-1-370x229.jpeg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Businesses can help bring England's troubled waters back to health</div>
-                <div class="date">Thu, 15 Feb 2024 08:57:53 +0000</div>
-            </div>
-        </a>
+        <img src="https://image.chitra.live/api/v1/wps/2e02856/c32e0bf6-6e28-49f1-ab05-4a71399a4552/5/Ali-Morse-Water-Policy-Manager-TWT-portrait-edited-version-1-370x229.jpeg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Businesses can help bring England's troubled waters back to health</h2>
+            <p class="date">Thu, 15 Feb 2024 08:57:53 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.telegraph.co.uk/global-health/terror-and-security/ai-climate-change-pandemic-nuclear-warfare-humanity-danger/">
-            <img src="https://www.telegraph.co.uk/content/dam/global-health/2024/02/14/TELEMMGLPICT000268227133_17079311112820_trans_NvBQzQNjv4BqDyn_kzCs85o7bFJrmLDpe_4Xpit_DMGvdp2n7FDd82k.jpeg?impolicy=logo-overlay" alt="Article image">
-            <div class="overlay">
-                <div class="title">AI, climate change, pandemics and nuclear warfare puts humanity in ‘grave danger’, open letter warns</div>
-                <div class="date">Thu, 15 Feb 2024 00:01:00 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.telegraph.co.uk/content/dam/global-health/2024/02/14/TELEMMGLPICT000268227133_17079311112820_trans_NvBQzQNjv4BqDyn_kzCs85o7bFJrmLDpe_4Xpit_DMGvdp2n7FDd82k.jpeg?impolicy=logo-overlay" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">AI, climate change, pandemics and nuclear warfare puts humanity in ‘grave danger’, open letter warns</h2>
+            <p class="date">Thu, 15 Feb 2024 00:01:00 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.telegraph.co.uk/world-news/2024/02/14/australian-prime-minister-anthony-albanese-engaged/">
-            <img src="https://www.telegraph.co.uk/content/dam/world-news/2024/02/15/TELEMMGLPICT000366561662_17079660173110_trans_NvBQzQNjv4BqsvEi3P8Qkw0HLYn_ZSpox6AlU1rqWEMlwrSxW1sRyts.jpeg?impolicy=logo-overlay" alt="Article image">
-            <div class="overlay">
-                <div class="title">'She said yes': Australian prime minister proposes on Valentine's Day</div>
-                <div class="date">Wed, 14 Feb 2024 23:44:13 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.telegraph.co.uk/content/dam/world-news/2024/02/15/TELEMMGLPICT000366561662_17079660173110_trans_NvBQzQNjv4BqsvEi3P8Qkw0HLYn_ZSpox6AlU1rqWEMlwrSxW1sRyts.jpeg?impolicy=logo-overlay" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">'She said yes': Australian prime minister proposes on Valentine's Day</h2>
+            <p class="date">Wed, 14 Feb 2024 23:44:13 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.telegraph.co.uk/news/2024/02/14/oval-cricket-crash-police-officers-injured-bus-patrol-van/">
-            <img src="https://www.telegraph.co.uk/content/dam/news/2024/02/14/TELEMMGLPICT000366501023_17079242639230_trans_NvBQzQNjv4BquWljxTX2ToqwW26CTqWzx1vwUTs18iYyN3VHiu7K_g0.jpeg?impolicy=logo-overlay" alt="Article image">
-            <div class="overlay">
-                <div class="title">Six police taken to hospital after patrol van collides with double-decker bus</div>
-                <div class="date">Wed, 14 Feb 2024 15:46:27 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.telegraph.co.uk/content/dam/news/2024/02/14/TELEMMGLPICT000366501023_17079242639230_trans_NvBQzQNjv4BquWljxTX2ToqwW26CTqWzx1vwUTs18iYyN3VHiu7K_g0.jpeg?impolicy=logo-overlay" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Six police taken to hospital after patrol van collides with double-decker bus</h2>
+            <p class="date">Wed, 14 Feb 2024 15:46:27 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.telegraph.co.uk/global-health/science-and-disease/climate-change-conflict-crises-supercharge-malaria/">
-            <img src="https://www.telegraph.co.uk/content/dam/global-health/2024/02/14/TELEMMGLPICT000363642838_17079127437600_trans_NvBQzQNjv4Bqe8exRwkrG0gUQzS_A7vs-P4Xpit_DMGvdp2n7FDd82k.jpeg?impolicy=logo-overlay" alt="Article image">
-            <div class="overlay">
-                <div class="title">Conflict and climate change are supercharging malaria, but it can be stopped</div>
-                <div class="date">Wed, 14 Feb 2024 12:14:02 GMT</div>
-            </div>
-        </a>
+        <img src="https://www.telegraph.co.uk/content/dam/global-health/2024/02/14/TELEMMGLPICT000363642838_17079127437600_trans_NvBQzQNjv4Bqe8exRwkrG0gUQzS_A7vs-P4Xpit_DMGvdp2n7FDd82k.jpeg?impolicy=logo-overlay" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Conflict and climate change are supercharging malaria, but it can be stopped</h2>
+            <p class="date">Wed, 14 Feb 2024 12:14:02 GMT</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/02/15/climate-will-be-a-battleground-in-britains-next-election">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240217_BRP503.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Climate will be a battleground in Britain’s next election</div>
-                <div class="date">Thu, 15 Feb 2024 15:59:41 +0000</div>
-            </div>
-        </a>
+        <img src="default_image_url_here" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Rwanda Creates Nearly a Million Refugees Since Signing Asylum Deal with UK Government</h2>
+            <p class="date">Mon, 19 Feb 2024 13:57:30 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/02/08/britains-labour-party-cuts-back-its-flagship-climate-change-policy">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240210_BRP505.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Britain’s Labour Party cuts back its flagship climate-change policy</div>
-                <div class="date">Thu, 08 Feb 2024 21:29:34 +0000</div>
-            </div>
-        </a>
+        <img src="default_image_url_here" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Another New Anti-Immigration Pressure Group is Launched from Tufton Street and Met with Reams of Media Coverage</h2>
+            <p class="date">Thu, 15 Feb 2024 17:36:27 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/02/08/the-former-prime-minister-who-fascinates-the-labour-party">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240210_BRD000.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">The former prime minister who fascinates the Labour Party</div>
-                <div class="date">Thu, 08 Feb 2024 14:40:12 +0000</div>
-            </div>
-        </a>
+        <img src="default_image_url_here" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">London Council Breaches Human Rights Law After Subjecting Asylum Seeker to Degrading Treatment</h2>
+            <p class="date">Thu, 15 Feb 2024 12:55:11 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/02/08/a-tiny-right-wing-party-tries-to-menace-britains-conservatives">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240210_BRP503.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">A tiny right-wing party tries to menace Britain’s Conservatives</div>
-                <div class="date">Thu, 08 Feb 2024 10:22:19 +0000</div>
-            </div>
-        </a>
+        <img src="default_image_url_here" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Conservative Promos Banned by Local Newspaper After Party  ‘Wrongly Suggests Paper Endorsed’ Candidate</h2>
+            <p class="date">Wed, 14 Feb 2024 10:51:23 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/02/01/the-search-for-conservative-party-unity">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240203_BRD000.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">The search for Conservative Party unity</div>
-                <div class="date">Thu, 01 Feb 2024 14:28:43 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240217_BRP503.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Climate will be a battleground in Britain’s next election</h2>
+            <p class="date">Thu, 15 Feb 2024 15:59:41 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/01/25/how-to-transport-a-rhino">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240127_BRP004.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">How to transport a rhino</div>
-                <div class="date">Thu, 25 Jan 2024 14:21:46 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240210_BRP505.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Britain’s Labour Party cuts back its flagship climate-change policy</h2>
+            <p class="date">Thu, 08 Feb 2024 21:29:34 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/01/25/britains-council-tax-is-arbitrary-regressive-and-needs-fixing">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240127_BRP504.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Britain’s council tax is arbitrary, regressive and needs fixing</div>
-                <div class="date">Thu, 25 Jan 2024 14:21:46 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240210_BRD000.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">The former prime minister who fascinates the Labour Party</h2>
+            <p class="date">Thu, 08 Feb 2024 14:40:12 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/01/24/britain-wants-to-make-nuclear-power-plants-cheaper-to-build">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240127_BRP001.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Britain wants to make nuclear power plants cheaper to build</div>
-                <div class="date">Wed, 24 Jan 2024 19:38:33 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240210_BRP503.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">A tiny right-wing party tries to menace Britain’s Conservatives</h2>
+            <p class="date">Thu, 08 Feb 2024 10:22:19 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2024/01/17/rishi-sunaks-pyrrhic-victory-on-rwanda">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240120_BRP004.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Rishi Sunak’s pyrrhic victory on Rwanda</div>
-                <div class="date">Wed, 17 Jan 2024 22:12:56 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240203_BRD000.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">The search for Conservative Party unity</h2>
+            <p class="date">Thu, 01 Feb 2024 14:28:43 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/12/14/the-magical-thinking-behind-britains-rwanda-bill">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231216_BRP003.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">The magical thinking behind Britain’s Rwanda bill</div>
-                <div class="date">Thu, 14 Dec 2023 09:57:56 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240127_BRP004.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">How to transport a rhino</h2>
+            <p class="date">Thu, 25 Jan 2024 14:21:46 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/12/13/how-a-rwandan-gambit-consumed-the-conservative-party">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231216_BRP004.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">How a Rwandan gambit consumed the Conservative Party</div>
-                <div class="date">Wed, 13 Dec 2023 20:14:43 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240127_BRP504.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Britain’s council tax is arbitrary, regressive and needs fixing</h2>
+            <p class="date">Thu, 25 Jan 2024 14:21:46 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/12/07/the-british-conservatives-crisis-over-rwanda-is-a-rerun-of-brexit">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231209_BRP505.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">The British Conservatives’ crisis over Rwanda is a rerun of Brexit</div>
-                <div class="date">Thu, 07 Dec 2023 18:47:01 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240127_BRP001.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Britain wants to make nuclear power plants cheaper to build</h2>
+            <p class="date">Wed, 24 Jan 2024 19:38:33 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/12/05/how-britain-plans-to-cut-immigration">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231209_BRP502.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">How Britain plans to cut immigration</div>
-                <div class="date">Tue, 05 Dec 2023 19:16:13 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20240120_BRP004.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Rishi Sunak’s pyrrhic victory on Rwanda</h2>
+            <p class="date">Wed, 17 Jan 2024 22:12:56 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/11/23/is-britains-plan-to-send-asylum-seekers-to-rwanda-salvageable">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231125_BRP505.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Is Britain’s plan to send asylum-seekers to Rwanda salvageable?</div>
-                <div class="date">Thu, 23 Nov 2023 15:08:13 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231216_BRP003.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">The magical thinking behind Britain’s Rwanda bill</h2>
+            <p class="date">Thu, 14 Dec 2023 09:57:56 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/11/15/the-supreme-court-rules-against-britains-rwanda-plan-what-now">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231118_BRP002.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">The Supreme Court rules against Britain’s Rwanda plan. What now?</div>
-                <div class="date">Wed, 15 Nov 2023 19:14:28 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231216_BRP004.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">How a Rwandan gambit consumed the Conservative Party</h2>
+            <p class="date">Wed, 13 Dec 2023 20:14:43 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/11/14/vaping-is-big-business-in-britain">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231118_BRP501.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Vaping is big business in Britain</div>
-                <div class="date">Tue, 14 Nov 2023 17:37:40 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231209_BRP505.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">The British Conservatives’ crisis over Rwanda is a rerun of Brexit</h2>
+            <p class="date">Thu, 07 Dec 2023 18:47:01 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.economist.com/britain/2023/11/02/how-the-rapid-growth-of-virtual-wards-is-helping-the-nhs">
-            <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231104_BRD001.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">How the rapid growth of virtual wards is helping the NHS</div>
-                <div class="date">Thu, 02 Nov 2023 14:17:57 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231209_BRP502.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">How Britain plans to cut immigration</h2>
+            <p class="date">Tue, 05 Dec 2023 19:16:13 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/19/bath-voice-sports-news-citys-promotion-push-gathers-pace-with-a-win-over-st-albans-as-they-play-at-a-high-level-while-the-long-bomb-queen-super-sophie-stars-in-winning-start-for-the-blue-a/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Bath-V-St-Albans-Feb-24.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice Sports News: City’s promotion push gathers pace with a win over St Albans as they play at ‘a high level’, while the ‘Long Bomb Queen’ Super Sophie stars in winning start for the Blue and Golds</div>
-                <div class="date">Mon, 19 Feb 2024 09:22:57 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231125_BRP505.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Is Britain’s plan to send asylum-seekers to Rwanda salvageable?</h2>
+            <p class="date">Thu, 23 Nov 2023 15:08:13 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/19/bath-voice-news-letter-the-editor/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/August-2003-10.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News – Letter to the Editor: the volunteers of Lyncombe Hill Fields have created a set of greetings cards of the beautiful hill top paradise</div>
-                <div class="date">Mon, 19 Feb 2024 07:34:13 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231118_BRP002.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">The Supreme Court rules against Britain’s Rwanda plan. What now?</h2>
+            <p class="date">Wed, 15 Nov 2023 19:14:28 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/18/bath-voice-news-pick-of-the-theatre-shows-coming-up-in-bath-in-march/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/The-Kite-Runner.webp" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News: pick of the theatre shows coming up in Bath in March</div>
-                <div class="date">Sun, 18 Feb 2024 11:21:58 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231118_BRP501.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Vaping is big business in Britain</h2>
+            <p class="date">Tue, 14 Nov 2023 17:37:40 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/17/bath-voice-news-police-announce-operation-to-tackle-serious-youth-violence-and-knife-crime-following-spate-of-murders-in-bath-and-bristol/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Avon-and-Somerset-Constabulary.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News: Police announce operation to tackle serious youth violence and knife crime following spate of murders in Bath and Bristol</div>
-                <div class="date">Sat, 17 Feb 2024 09:46:25 +0000</div>
-            </div>
-        </a>
+        <img src="https://www.economist.com/img/b/1280/720/90/media-assets/image/20231104_BRD001.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">How the rapid growth of virtual wards is helping the NHS</h2>
+            <p class="date">Thu, 02 Nov 2023 14:17:57 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/16/bath-voice-news-update-on-knife-man-incident-when-the-ruh-was-locked-down-on-february-2-over-threatening-phone-calls-from-a-man-who-has-now-been-sectioned-under-the-mental-health-act/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/RUH_Sign_FULL-scaled.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News: Update on ‘knife man’ incident when the RUH was locked down on February 2 over threatening phone calls from a man who has now been sectioned under the Mental Health Act</div>
-                <div class="date">Fri, 16 Feb 2024 20:22:57 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Bath-V-St-Albans-Feb-24.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice Sports News: City’s promotion push gathers pace with a win over St Albans as they play at ‘a high level’, while the ‘Long Bomb Queen’ Super Sophie stars in winning start for the Blue and Golds</h2>
+            <p class="date">Mon, 19 Feb 2024 09:22:57 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/16/bath-voice-sports-news-news-information-fixtures-and-results-of-the-citys-teams-coming-up-this-weekend-and-beyond-13/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/weston_spc_report-400x300-1.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice Sports News: news, information, fixtures and results of the city’s teams coming up this weekend and beyond</div>
-                <div class="date">Fri, 16 Feb 2024 09:58:51 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/August-2003-10.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News – Letter to the Editor: the volunteers of Lyncombe Hill Fields have created a set of greetings cards of the beautiful hill top paradise</h2>
+            <p class="date">Mon, 19 Feb 2024 07:34:13 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/16/bath-voice-news-local-plan-consultation-opens-with-dates-and-venues-for-drop-in-sessions/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Bath-Guildhall.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News: Local Plan consultation opens with dates and venues for drop-in sessions</div>
-                <div class="date">Fri, 16 Feb 2024 08:50:53 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/The-Kite-Runner.webp" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News: pick of the theatre shows coming up in Bath in March</h2>
+            <p class="date">Sun, 18 Feb 2024 11:21:58 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/15/bath-voice-news-reactions-continue-over-plans-to-demolish-the-church-of-the-good-shepherd-and-replace-it-with-more-houses/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Church-of-Good-shepherd-interior.jpeg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News: reactions continue over plans to demolish The Church of the Good Shepherd and replace it with more houses</div>
-                <div class="date">Thu, 15 Feb 2024 12:52:58 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Avon-and-Somerset-Constabulary.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News: Police announce operation to tackle serious youth violence and knife crime following spate of murders in Bath and Bristol</h2>
+            <p class="date">Sat, 17 Feb 2024 09:46:25 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/14/bath-voice-news-multinational-beauty-retailer-the-body-shop-enters-administration-casting-doubt-over-the-future-of-the-citys-branch/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/The-Body-Shop.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News: beauty retailer The Body Shop enters administration casting doubt over the future of the city’s branch</div>
-                <div class="date">Wed, 14 Feb 2024 11:51:10 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/RUH_Sign_FULL-scaled.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News: Update on ‘knife man’ incident when the RUH was locked down on February 2 over threatening phone calls from a man who has now been sectioned under the Mental Health Act</h2>
+            <p class="date">Fri, 16 Feb 2024 20:22:57 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://bathvoice.co.uk/2024/02/13/bath-voice-news-catholic-church-and-classic-example-of-1960s-architecture-is-set-to-be-demolished-to-make-way-for-houses/">
-            <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Church-of-the-Good-Shepherd-Batheaston-to-be-knocked-down.jpg" alt="Article image">
-            <div class="overlay">
-                <div class="title">Bath Voice News: Catholic Church and classic example of 1960’s architecture is set to be demolished to make way for houses</div>
-                <div class="date">Tue, 13 Feb 2024 21:17:46 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/weston_spc_report-400x300-1.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice Sports News: news, information, fixtures and results of the city’s teams coming up this weekend and beyond</h2>
+            <p class="date">Fri, 16 Feb 2024 09:58:51 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.reutersagency.com/en/reutersbest/article/four-banks-quit-initiative-assessing-climate-targets/">
-            <img src="default_image_url_here" alt="Article image">
-            <div class="overlay">
-                <div class="title">Four banks quit initiative assessing climate targets</div>
-                <div class="date">Wed, 29 Nov 2023 10:04:23 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Bath-Guildhall.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News: Local Plan consultation opens with dates and venues for drop-in sessions</h2>
+            <p class="date">Fri, 16 Feb 2024 08:50:53 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.reutersagency.com/en/reutersbest/article/climate-investment-funds-appoints-tariye-gbadegesin-as-ceo/">
-            <img src="default_image_url_here" alt="Article image">
-            <div class="overlay">
-                <div class="title">Climate Investment Funds appoints Tariye Gbadegesin as CEO</div>
-                <div class="date">Mon, 27 Nov 2023 05:10:11 +0000</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Church-of-Good-shepherd-interior.jpeg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News: reactions continue over plans to demolish The Church of the Good Shepherd and replace it with more houses</h2>
+            <p class="date">Thu, 15 Feb 2024 12:52:58 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.standard.co.uk/news/politics/english-channel-boats-un-rwanda-flights-manslaughter-migrant-drownings-b1140087.html">
-            <img src="https://static.standard.co.uk/2024/02/09/14/f155e9a3fc9d76c740c491d02629f217Y29udGVudHNlYXJjaGFwaSwxNzA3NTcyNzQ1-2.71729236.jpg?width=1200&auto=webp&quality=75" alt="Article image">
-            <div class="overlay">
-                <div class="title">Channel boat pilot found guilty of manslaughter as UN rights chief slams UK's Rwanda plan</div>
-                <div class="date">Mon, 19 Feb 2024 16:12:07 GMT</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/The-Body-Shop.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News: beauty retailer The Body Shop enters administration casting doubt over the future of the city’s branch</h2>
+            <p class="date">Wed, 14 Feb 2024 11:51:10 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.standard.co.uk/news/politics/ofcom-investigation-prime-minister-rishi-sunak-gb-news-b1140008.html">
-            <img src="https://static.standard.co.uk/2024/02/12/21/31a7710c13c31208e5810318df5cb795Y29udGVudHNlYXJjaGFwaSwxNzA3ODYwMDE4-2.75328659.jpg?width=1200&auto=webp&quality=75" alt="Article image">
-            <div class="overlay">
-                <div class="title">Ofcom launches investigation into Prime Minister Rishi Sunak's appearance on GB News</div>
-                <div class="date">Mon, 19 Feb 2024 11:36:35 GMT</div>
-            </div>
-        </a>
+        <img src="https://bathvoice.co.uk/wp-content/uploads/sites/6/2024/02/Church-of-the-Good-Shepherd-Batheaston-to-be-knocked-down.jpg" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Bath Voice News: Catholic Church and classic example of 1960’s architecture is set to be demolished to make way for houses</h2>
+            <p class="date">Tue, 13 Feb 2024 21:17:46 +0000</p>
+        </div>
     </div>
 
     <div class="article-tile">
-        <a href="https://www.standard.co.uk/news/politics/rwanda-parliament-home-office-times-government-b1139937.html">
-            <img src="https://static.standard.co.uk/2024/02/18/23/479938e8b5a14ff044973d948f7e56ecY29udGVudHNlYXJjaGFwaSwxNzA4Mzg0NTEy-2.75205464.jpg?width=1200&auto=webp&quality=75" alt="Article image">
-            <div class="overlay">
-                <div class="title">‘Scandalous’ if watchdog role empty when Rwanda plan starts, says inspector</div>
-                <div class="date">Sun, 18 Feb 2024 23:28:36 GMT</div>
-            </div>
-        </a>
+        <img src="default_image_url_here" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Four banks quit initiative assessing climate targets</h2>
+            <p class="date">Wed, 29 Nov 2023 10:04:23 +0000</p>
+        </div>
+    </div>
+
+    <div class="article-tile">
+        <img src="default_image_url_here" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Climate Investment Funds appoints Tariye Gbadegesin as CEO</h2>
+            <p class="date">Mon, 27 Nov 2023 05:10:11 +0000</p>
+        </div>
+    </div>
+
+    <div class="article-tile">
+        <img src="https://static.standard.co.uk/2024/02/09/14/f155e9a3fc9d76c740c491d02629f217Y29udGVudHNlYXJjaGFwaSwxNzA3NTcyNzQ1-2.71729236.jpg?width=1200&auto=webp&quality=75" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Channel boat pilot found guilty of manslaughter as UN rights chief slams UK's Rwanda plan</h2>
+            <p class="date">Mon, 19 Feb 2024 16:12:07 GMT</p>
+        </div>
+    </div>
+
+    <div class="article-tile">
+        <img src="https://static.standard.co.uk/2024/02/12/21/31a7710c13c31208e5810318df5cb795Y29udGVudHNlYXJjaGFwaSwxNzA3ODYwMDE4-2.75328659.jpg?width=1200&auto=webp&quality=75" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">Ofcom launches investigation into Prime Minister Rishi Sunak's appearance on GB News</h2>
+            <p class="date">Mon, 19 Feb 2024 11:36:35 GMT</p>
+        </div>
+    </div>
+
+    <div class="article-tile">
+        <img src="https://static.standard.co.uk/2024/02/18/23/479938e8b5a14ff044973d948f7e56ecY29udGVudHNlYXJjaGFwaSwxNzA4Mzg0NTEy-2.75205464.jpg?width=1200&auto=webp&quality=75" alt="Article image">
+        <div class="overlay">
+            <h2 class="title">‘Scandalous’ if watchdog role empty when Rwanda plan starts, says inspector</h2>
+            <p class="date">Sun, 18 Feb 2024 23:28:36 GMT</p>
+        </div>
     </div>
 </body></html>
