@@ -2,6 +2,7 @@ import feedparser
 import re
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 def extract_social_image_url(article_url):
     try:
@@ -30,6 +31,11 @@ def fetch_filtered_articles(rss_feeds, keywords):
                     'image_url': image_url,  # Include extracted image URL
                 }
                 filtered_articles.append(article)
+    
+    # Sort articles by publication date
+    # If the date format is not directly sortable, parse it into datetime object here
+    filtered_articles.sort(key=lambda x: x['pubDate'], reverse=True)
+    
     return filtered_articles
 
 def generate_html_feed(filtered_articles):
